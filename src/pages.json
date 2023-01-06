@@ -3,7 +3,25 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/registered/index",
+			"style": {
+				"navigationBarTitleText": "科室列表"
+			}
+		},
+		{
+			"path": "pages/video/index",
+			"style": {
+				"navigationBarTitleText": "医生课堂"
+			}
+		},
+		{
+			"path": "pages/mine/index",
+			"style": {
+				"navigationBarTitleText": "个人中心"
 			}
 		}
 	],
