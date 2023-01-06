@@ -42,6 +42,7 @@
     "@dcloudio/uni-h5": "3.0.0-alpha-3061420221216001",
     "@dcloudio/uni-mp-weixin": "3.0.0-alpha-3061420221216001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-3061420221216001",
+    "js-base64": "^3.7.3",
     "vue": "^3.2.45"
   },
   "devDependencies": {
