@@ -30,5 +30,37 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#5263e3",
+		"backgroundColor": "#fff",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/tab/shouye-001.png",
+				"selectedIconPath": "static/tab/shouye-002.png"
+			},
+			{
+				"pagePath": "pages/registered/index",
+				"text": "挂号",
+				"iconPath": "static/tab/guahao-001.png",
+				"selectedIconPath": "static/tab/guahao-002.png"
+			},
+			{
+				"pagePath": "pages/video/index",
+				"text": "医生课堂",
+				"iconPath": "static/tab/shipin-001.png",
+				"selectedIconPath": "static/tab/shipin-002.png"
+			},
+			{
+				"pagePath": "pages/mine/index",
+				"text": "我的",
+				"iconPath": "static/tab/wode-001.png",
+				"selectedIconPath": "static/tab/wode-002.png"
+			}
+		]
 	}
 }
