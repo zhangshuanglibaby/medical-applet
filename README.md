@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-06 13:06:55
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-06 22:12:58
+ * @LastEditTime: 2023-01-07 13:05:07
  * @Description: 这是****文件
 -->
 ### 环境安装
@@ -17,6 +17,7 @@
 开发首页样式
     使用自定义导航栏
     使用wx.getMenuButtonBoundingClientRect api获取菜单按钮位置
+    样式用到了v-bind新的语法
 封装request请求
     token需要下载js-base64加密携带在请求头中
 设置tsconfig.json 配置，增加baseUrl，和path属性，paths用于设置模块名到基于baseUrl的路径映射

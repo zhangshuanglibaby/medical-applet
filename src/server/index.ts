@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-06 21:45:23
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-06 22:02:04
+ * @LastEditTime: 2023-01-07 14:58:47
  * @Description: 这是封装请求的文件
  */
 
@@ -31,7 +31,7 @@ const $http = (
       header: { Authorization: getToken() },
       success: (res: any) => { // 成功的回调
         if(res.statusCode === 200) {
-          resolve(res.data)
+          resolve(res.data.data)
           return
         }
         if(res.statusCode === 401) {
