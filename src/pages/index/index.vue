@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-12-30 17:51:21
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-07 16:34:56
+ * @LastEditTime: 2023-01-07 17:39:29
  * @Description: 这是首页文件
 -->
 <template>
@@ -41,12 +41,6 @@ let vaccine  = ref<Vaccine[]>([]) // 首页第一项数据 疫苗预约
 let reserve  = ref<Reserve[]>([]) // 首页第二项数据 挂号和体检
 let popular  = ref<Popular[]>([]) // 首页第三项数据 热门挂号
 let self_test  = ref<SelfTest[]>([]) // 首页第四项数据 健康自测
-onMounted(() => {
-  const { top, height } = uni.getStorageSync('menuButton') as { top: number, height: number}
-  menu_top.value = top + 'px'
-  menu_height.value = height + 'px'
-  pageData()
-})
 
 // 获取页面数据
 const pageData = async () => {
@@ -56,6 +50,14 @@ const pageData = async () => {
   popular.value = res3.popular
   self_test.value = res4.self_test
 }
+
+onMounted(() => {
+  const { top, height } = uni.getStorageSync('menuButton') as { top: number, height: number}
+  menu_top.value = top + 'px'
+  menu_height.value = height + 'px'
+  pageData()
+})
+
 </script>
 
 <style scoped>
