@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-06 21:45:23
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-07 14:58:47
+ * @LastEditTime: 2023-01-08 13:52:48
  * @Description: 这是封装请求的文件
  */
 
@@ -35,7 +35,9 @@ const $http = (
           return
         }
         if(res.statusCode === 401) {
-          // 没有权限
+          // 没有权限 跳转登陆
+          uni.showToast({ title: '请先登录', duration: 1000 })
+          uni.navigateTo({ url: '/pages/login-page/index' })
         }else if(res.statusCode === 500) {
           uni.showToast({ title: '服务器发生位置错误', duration: 1000 })
         }else if(res.statusCode === 202) {

@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-08 09:14:57
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-08 11:03:52
+ * @LastEditTime: 2023-01-08 13:35:47
  * @Description: 这是新冠疫苗预约 -> 预约内容文件
 -->
 <template>
@@ -10,24 +10,26 @@
     <view class="reserve_address">
       <text class="reserve_name">{{ data.Hospital}}</text>
       <text class="reserve_road">{{ data.address }}</text>
-      <view class="reserve_title" v-for="(item, index) in data.company" :key="index">
-        <text>{{ item }}</text>
+      <view class="reserve_title">
+        <text v-for="(item, index) in data.company" :key="index">{{ item }}</text>
       </view>
     </view>
     <!-- E 医院地址 -->
 
-    <!-- S 选择星期 -->
+    <!-- S 选择日期 -->
     <view class="week">
       <view 
         class="week_style week_sup"
+        :class="{ checkstyle: state.currentDate === index }"
         v-for="(item, index) in data.week"
-        :key="index">
+        :key="index"
+        @click="toggleDate(index, item.date)">
         <text>{{ item.day }}</text>
         <text>{{ item.date}}</text>
         <text>{{ item.Have }}</text>
       </view>
     </view>
-    <!-- E 选择星期 -->
+    <!-- E 选择日期 -->
 
     <!-- S 选择时段 -->
     <view class="period_view" v-for="(item, index) in data.lasting" :key="index">
@@ -35,8 +37,10 @@
       <view class="week_flex">
         <view
           class="week_style week_Down"
-          v-for="(time, index) in item.time"
-          :key="index">
+          :class="{ checkstyle: `${index}_${timeIndex}` === state.currentPeriod }"
+          v-for="(time, timeIndex) in item.time"
+          :key="timeIndex"
+          @click="togglePeriod(`${index}_${timeIndex}`, item.period, time)">
           <text>{{ time.start_time }}-{{ time.end_time}}</text>
           <text>剩余{{ time.over }}</text>
         </view>
@@ -46,8 +50,8 @@
   </view>
 </template>
 <script setup lang="ts">
-import type { PropType } from 'vue'
-import { TimeData } from '@/types/xinguan'
+import { PropType, reactive } from 'vue'
+import { TimeData, Time } from '@/types/xinguan'
 defineProps({
   data: {
     // 提供相对 `Object` 更确定的类型
@@ -55,6 +59,24 @@ defineProps({
     default: () => {}
   }
 })
+const emit = defineEmits(['toggleDate', 'togglePeriod'])
+
+const state = reactive({
+  currentDate: -1, // 当前选中的日期
+  currentPeriod: '' // 当前选中的时间段
+})
+
+// 选择日期
+const toggleDate = (index: number, date: string) => {
+  state.currentDate = index
+  emit('toggleDate', date)
+}
+
+// 选择时间段
+const togglePeriod = (symbol: string, period: string, time: Time) => {
+  state.currentPeriod = symbol
+  emit('togglePeriod', period, time )
+}
 </script>
 <style scoped>
 /* 预约地址 */

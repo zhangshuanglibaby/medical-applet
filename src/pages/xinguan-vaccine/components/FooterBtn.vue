@@ -1,15 +1,18 @@
 <!--
  * @Date: 2023-01-08 09:37:48
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-08 09:43:54
+ * @LastEditTime: 2023-01-08 12:02:15
  * @Description: 这是新冠疫苗预约 -> 底部按钮文件
 -->
 <template>
   <view class="submit">
-    <button>取消</button>
-    <button>提价预约</button>
+    <button @click="$emit('cancel')">取消</button>
+    <button @click="$emit('submit')">提交预约</button>
   </view>
 </template>
+<script setup lang="ts">
+defineEmits(['cancel', 'submit'])
+</script>
 <style scoped>
 .submit {
   background-color: #ffffff;

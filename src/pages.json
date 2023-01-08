@@ -3,7 +3,21 @@
 		{
 			"path": "pages/xinguan-vaccine/index",
 			"style": {
-				"navigationBarTitleText": "新冠疫苗预约"
+				"navigationBarTitleText": "新冠疫苗预约",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/my-service/xinguan/index",
+			"style": {
+				"navigationBarTitleText": "新冠疫苗订单"
+			}
+		},
+		{
+			"path": "pages/login-page/index",
+			"style": {
+				"navigationBarTitleText": "登陆",
+				"navigationStyle": "custom"
 			}
 		},
 		{
