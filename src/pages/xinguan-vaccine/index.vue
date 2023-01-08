@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-08 08:53:14
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-08 13:48:04
+ * @LastEditTime: 2023-01-08 20:25:20
  * @Description: 这是新冠疫苗预约文件
 -->
 <template>
@@ -100,12 +100,13 @@ const changeRegion = (event: any) => {
 
 // 选择疫苗人群分类
 // 疫苗人群分类
-const selector_data = ref(['医疗卫生人员','卫生系统内工作的其他人员','因公出国人员',
+const selector_data = ref<string[]>(['医疗卫生人员','卫生系统内工作的其他人员','因公出国人员',
 '对外劳务派遣人员','留学生','因私出国人员','海关边检人员','公安系统,消防人员',
 '党政机关,事业单位人员','社区工作者','教育工作者','小学和中学学生','其他人员'
 ])
 const changeSelector = (event: any) => {
-  state.submit_data.crowd_sort = selector_data.value[event.detail.value]
+  const { value } = event.detail
+  state.submit_data.crowd_sort = selector_data.value[value]
 }
 
 // 监听选中的日期
@@ -122,7 +123,8 @@ const handleTogglePeriod = (period: string, time: Time) => {
 
 // 取消
 const handleCancel = () => {
-
+  // 返回上一页
+  uni.navigateBack({ delta: 1 })
 }
 
 // 提交
