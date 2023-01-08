@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-08 08:53:14
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-08 09:38:57
+ * @LastEditTime: 2023-01-08 10:28:14
  * @Description: 这是新冠疫苗预约文件
 -->
 <template>
@@ -44,15 +44,40 @@
     <!-- E 表单填写 -->
   </view>
   <!-- 预约内容 -->
-  <VaccineContent />
+  <VaccineContent :data="timeData" />
   <!-- 底部按钮 -->
   <FooterBtn />
   <!-- 这个一个空盒子 占位用的 -->
   <view class="empty-box"></view>
 </template>
 <script setup lang="ts">
+import { onMounted, reactive, toRefs } from 'vue'
+import { newAppTime } from '@/api/xinguan'
+import { TimeData } from '@/types/xinguan'
+// 组件
 import VaccineContent from './components/VaccineContent.vue'
 import FooterBtn from './components/FooterBtn.vue'
+
+type Data = {
+  timeData: TimeData
+}
+const state = reactive<Data>({
+  // 新冠疫苗预约时间段数据
+  timeData: {
+    Hospital: "",
+    address: "",
+    company: [],
+    lasting: [],
+    week: []
+  }
+})
+onMounted(async () => {
+  // 获取新冠疫苗预约时间段
+  const [ res ] = await newAppTime() as any
+  state.timeData = res
+})
+
+const  { timeData } = toRefs(state)
 </script>
 <style>
 @import url(@/common-style/form.css);

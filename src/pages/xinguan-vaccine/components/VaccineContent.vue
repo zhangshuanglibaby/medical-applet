@@ -1,53 +1,61 @@
 <!--
  * @Date: 2023-01-08 09:14:57
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-08 09:38:08
+ * @LastEditTime: 2023-01-08 11:03:52
  * @Description: 这是新冠疫苗预约 -> 预约内容文件
 -->
 <template>
   <view>
     <!-- S 医院地址 -->
     <view class="reserve_address">
-      <text class="reserve_name">第一任命医院</text>
-      <text class="reserve_road">昆明市</text>
-      <view class="reserve_title">
-        <text>北京生物</text>
+      <text class="reserve_name">{{ data.Hospital}}</text>
+      <text class="reserve_road">{{ data.address }}</text>
+      <view class="reserve_title" v-for="(item, index) in data.company" :key="index">
+        <text>{{ item }}</text>
       </view>
     </view>
     <!-- E 医院地址 -->
 
     <!-- S 选择星期 -->
     <view class="week">
-      <view class="week_style week_sup">
-        <text>周三</text>
-        <text>08-31</text>
-        <text>有号</text>
+      <view 
+        class="week_style week_sup"
+        v-for="(item, index) in data.week"
+        :key="index">
+        <text>{{ item.day }}</text>
+        <text>{{ item.date}}</text>
+        <text>{{ item.Have }}</text>
       </view>
     </view>
     <!-- E 选择星期 -->
 
     <!-- S 选择时段 -->
-    <view class="period_view">
-      <text class="period_title">上午时段</text>
+    <view class="period_view" v-for="(item, index) in data.lasting" :key="index">
+      <text class="period_title">{{ item.period }}</text>
       <view class="week_flex">
-        <view class="week_style week_Down">
-          <text>08:00-12:00</text>
-          <text>剩余199</text>
-        </view>
-      </view>
-    </view>
-    <view class="period_view">
-      <text class="period_title">下午时段</text>
-      <view class="week_flex">
-        <view class="week_style week_Down" v-for="i in 2" :key="2">
-          <text>08:00-12:00</text>
-          <text>剩余199</text>
+        <view
+          class="week_style week_Down"
+          v-for="(time, index) in item.time"
+          :key="index">
+          <text>{{ time.start_time }}-{{ time.end_time}}</text>
+          <text>剩余{{ time.over }}</text>
         </view>
       </view>
     </view>
     <!-- E 选择时段 -->
   </view>
 </template>
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import { TimeData } from '@/types/xinguan'
+defineProps({
+  data: {
+    // 提供相对 `Object` 更确定的类型
+    type: Object as PropType<TimeData>,
+    default: () => {}
+  }
+})
+</script>
 <style scoped>
 /* 预约地址 */
 .reserve_address{
