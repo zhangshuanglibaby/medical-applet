@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-07 14:53:53
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-07 15:55:12
+ * @LastEditTime: 2023-01-11 22:27:39
  * @Description: 这是首页的类型声明文件
  */
 // -----------首页的类型声明文件--------------
@@ -20,7 +20,7 @@ export interface Reserve extends Vaccine {
 // 首页第三项数据 热门挂号
 export interface Popular extends Vaccine {
   background: string,
-  id: string
+  dep_id: string
 }
 
 // 首页第四项数据 健康自测

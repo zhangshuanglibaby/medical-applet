@@ -1,16 +1,17 @@
 <!--
  * @Date: 2022-12-30 17:51:21
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-11 15:43:45
+ * @LastEditTime: 2023-01-11 17:07:08
  * @Description: 这是****文件
 -->
 <script setup lang="ts">
 import { onLaunch, onShow, onHide } from "@dcloudio/uni-app";
+import { MenuButton } from '@/types/common'
 onLaunch(() => {
   console.log("App Launch");
   // 先从本地获取
-  const menuButton = uni.getStorageSync('menuButton')
-  if(!menuButton) {
+  const menu_button = uni.getStorageSync('menuButton') as MenuButton
+  if(!menu_button) {
     // 无数据 再获取
     const res = uni.getMenuButtonBoundingClientRect()
     // 存储
@@ -26,5 +27,4 @@ onHide(() => {
 });
 </script>
 <style lang="less">
-// @import url('@/syle/mixin.less');
 </style>

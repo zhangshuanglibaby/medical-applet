@@ -4,6 +4,11 @@
 
 /*
 -------------基础的的样式-------------*/
+// 主要标题
+.main_title {
+  font-size: 35rpx;
+  font-weight: bold;
+}
 // 定义常用的背景色
 .bg_f5 {
   background-color: #f5f5f5;
@@ -28,9 +33,9 @@
   color: @color;
 }
 // 高度、行高
-.hl(@height, @lineHeight) {
+.hl(@height) {
   height: @height;
-  line-height: @lineHeight;
+  line-height: @height;
 }
 
 
@@ -70,7 +75,16 @@
   right: 0;
   z-index: @zIndex;
 }
-
+.absolute_top_left(@top, @left) {
+  position: absolute;
+  top: @top;
+  left: @left;
+}
+.absolute_bottom_right(@bottom, @right) {
+  position: absolute;
+  bottom: @bottom;
+  right: @right;
+}
 
 /*
 -------------关于flex布局的样式-------------*/

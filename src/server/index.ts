@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-06 21:45:23
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-08 13:52:48
+ * @LastEditTime: 2023-01-11 22:43:50
  * @Description: 这是封装请求的文件
  */
 
@@ -23,7 +23,7 @@ const $http = (
   method: 'GET' | 'POST',
   data?: Object | String | ArrayBuffer
 ) => {
-  return new Promise((resolve, reject) => {
+  return new Promise<any[]>((resolve, reject) => {
     uni.request({
       url: `${baseUrl}${url}`,
       method,
@@ -36,19 +36,19 @@ const $http = (
         }
         if(res.statusCode === 401) {
           // 没有权限 跳转登陆
-          uni.showToast({ title: '请先登录', duration: 1000 })
+          uni.showToast({ title: '请先登录', duration: 1000, icon: 'none' })
           uni.navigateTo({ url: '/pages/login-page/index' })
         }else if(res.statusCode === 500) {
-          uni.showToast({ title: '服务器发生位置错误', duration: 1000 })
+          uni.showToast({ title: '服务器发生位置错误', duration: 1000, icon: 'error' })
         }else if(res.statusCode === 202) {
-          uni.showToast({ title: '参数错误', duration: 1000 })
+          uni.showToast({ title: '参数错误', duration: 1000, icon: 'error' })
         }else {
-          uni.showToast({ title: '其他错误', duration: 1000 })
+          uni.showToast({ title: '其他错误', duration: 1000, icon: 'error' })
         }
         reject(res)
       },
       fail: (err: any) => { // 失败的回调
-        uni.showToast({ title: '服务器发生位置错误', duration: 1000 })
+        uni.showToast({ title: '服务器发生位置错误', duration: 1000, icon: 'error' })
         reject(err)
       }
     })
