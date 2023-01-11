@@ -1,0 +1,91 @@
+@import './base.less';
+
+@primary: #0176ff; // 主题色
+
+/*
+-------------基础的的样式-------------*/
+// 定义常用的背景色
+.bg_f5 {
+  background-color: #f5f5f5;
+}
+.bg_f6 {
+  background-color: #f6f6f6;
+}
+.bg_f7 {
+  background-color: #f7f7f7;
+}
+.bg_fa {
+  background-color: #fafafa;
+}
+// 宽高
+.wh(@widht, @height) {
+  width: @widht;
+  height: @height;
+}
+// 字体大小、颜色
+.sc(@size, @color) {
+  font-size: @size;
+  color: @color;
+}
+// 高度、行高
+.hl(@height, @lineHeight) {
+  height: @height;
+  line-height: @lineHeight;
+}
+
+
+/*
+-------------关于定位的样式-------------*/ 
+// 定位全屏
+.all_cover(@position: absolute) {
+  position: @position;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+// 定位上下左右居中
+.position_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+// 定位上下居中
+.position_vertical_center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+// 定位左右居中
+.position_aline_center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.fixed_top(@zIndex: inherit) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: @zIndex;
+}
+
+
+/*
+-------------关于flex布局的样式-------------*/
+.flex_center(@justifyType: center, @alignType: center) {
+  display: flex;
+  justify-content: @justifyType;
+  align-items: @alignType;
+}
+.felx_column_center(@justifyType: center, @alignType: center) {
+  .flex_center(@justifyType, @alignType);
+  flex-direction: column;
+}
+
+.flex_sub {
+  flex: 1;
+}
+
+

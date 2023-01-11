@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-06 13:06:55
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-08 08:51:59
+ * @LastEditTime: 2023-01-11 15:45:29
  * @Description: 这是****文件
 -->
 ### 环境安装
@@ -25,3 +25,28 @@
 ### 完成首页开发
 
 ### 新冠疫苗预约表单提交
+
+### 引入全局的less样式
+下载less less-loader依赖
+在vite.config.ts 配置
+`
+  css: {
+    // css预处理器
+    preprocessorOptions: {
+      less: {
+        charset: false,
+        additionalData: `@import "${path.resolve(__dirname, 'src/style/mixin.less')}";`
+      }
+    }
+  }
+`
+
+### 需要优化的地方
+封装按钮公共组件
+封装空的公共组件
+封装订单的item组件
+二次封装表单的 input、picker组件
+整理下样式 抽离公用的
+封装图片上传的组件
+体检套餐的筛选条件样式需要优化
+可以从组件中 export导出类型声明

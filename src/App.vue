@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-12-30 17:51:21
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-06 19:16:41
+ * @LastEditTime: 2023-01-11 15:43:45
  * @Description: 这是****文件
 -->
 <script setup lang="ts">
@@ -25,4 +25,6 @@ onHide(() => {
   console.log("App Hide");
 });
 </script>
-<style></style>
+<style lang="less">
+// @import url('@/syle/mixin.less');
+</style>
