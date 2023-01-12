@@ -33,9 +33,10 @@
 			}
 		},
 		{
-			"path": "pages/my-service/xinguan/index",
+			"path": "pages/order/xinguan/index",
 			"style": {
-				"navigationBarTitleText": "新冠疫苗订单"
+				"navigationBarTitleText": "新冠疫苗订单",
+				"navigationBarBackgroundColor": "#ffffff"
 			}
 		},
 		{

@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-12-30 17:51:21
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-11 17:07:08
+ * @LastEditTime: 2023-01-12 22:35:38
  * @Description: 这是****文件
 -->
 <script setup lang="ts">
@@ -27,4 +27,7 @@ onHide(() => {
 });
 </script>
 <style lang="less">
+page {
+  background: #f7f7f7;
+}
 </style>
