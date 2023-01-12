@@ -1,27 +1,39 @@
 <!--
  * @Date: 2023-01-12 17:14:41
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-12 18:21:02
+ * @LastEditTime: 2023-01-12 20:31:30
  * @Description: 这是****文件
 -->
 <template>
-  <view class="period_time box_style">
-    <view class="period_title">{{ data.period }}</view>
+  <view class="period_time box_style" v-for="(item, index) in data" :key="index">
+    <view class="period_title">{{ item.period }}</view>
     <view class="period_list">
-      <view class="period_item" v-for="(item, index) in data.time" :key="index">
-        <view>{{ item.start_time }}-{{ item.end_time }}</view>
-        <view>剩余{{ item.over }}</view>
+      <view class="period_item"
+        :class="{check_style: currentIndex === `${index}_${period_index}`}"
+        v-for="(period, period_index) in item.time"
+        :key="period_index"
+        @click="handleChoose(item.period, period, `${index}_${period_index}`)">
+        <view>{{ period.start_time }}-{{ period.end_time }}</view>
+        <view>剩余{{ period.over }}</view>
       </view>
     </view>
   </view>
 </template>
 <script setup lang="ts">
-import { Lasting } from '@/types/xinguan'
+import { ref } from 'vue'
+import { Lasting, Time } from '@/types/xinguan'
 
 type Props = {
-  data: Lasting
+  data: Lasting[]
 }
-defineProps<Props>()
+const props = defineProps<Props>()
+const emit = defineEmits(['toggle'])
+// 选择时段
+let currentIndex = ref<number|string>()
+const handleChoose = (period: string,item: Time, index: string) => {
+  currentIndex.value = index
+  emit('toggle', period, item)
+}
 </script>
 <style lang="less" scoped>
 .period_time {
