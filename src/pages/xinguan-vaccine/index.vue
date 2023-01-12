@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-08 08:53:14
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-12 18:21:29
+ * @LastEditTime: 2023-01-12 19:07:14
  * @Description: 这是新冠疫苗预约文件
 -->
 <template>
@@ -26,6 +26,8 @@
       v-for="(item, index) in time_data.lasting"
       :key="index"
       :data="item"/>
+    <!-- 按钮 -->
+    <footer-btn></footer-btn>
     <!-- 空盒子 -->
     <empty-box></empty-box>
   </view>
