@@ -1,13 +1,25 @@
 @import './base.less';
 
-@primary: #0176ff; // 主题色
-
+@primary: #0176ff; // 主题色1
+@sub_primary: #2c76ef; // 主题色2
 /*
 -------------基础的的样式-------------*/
 // 主要标题
 .main_title {
   font-size: 35rpx;
   font-weight: bold;
+}
+// 盒子样式
+.box_style {
+  background-color: #ffffff;
+  padding: 20rpx;
+  margin: 20rpx;
+  border-radius: 10rpx;
+}
+// 选中的样式
+.check_style {
+  background: @sub_primary !important;
+  color: #fff;
 }
 // 定义常用的背景色
 .bg_f5 {

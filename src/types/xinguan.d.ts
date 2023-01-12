@@ -1,23 +1,23 @@
 /*
  * @Date: 2023-01-08 10:04:38
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-08 11:31:10
+ * @LastEditTime: 2023-01-12 18:19:01
  * @Description: 这是新冠疫苗相关类型声明文件
  */
 
-interface Time {
+export interface Time {
   end_time: string,
   over: number,
   start_time: string,
   when: number
 }
 
-interface Lasting {
+export interface Lasting {
   period: string,
   time: Time[]
 }
 
-interface Week {
+export interface Week {
   Have: string,
   date: string,
   day: string
