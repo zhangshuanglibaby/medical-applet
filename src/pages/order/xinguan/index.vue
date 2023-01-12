@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-12 22:32:19
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-13 00:28:08
+ * @LastEditTime: 2023-01-13 00:30:30
  * @Description: 这是新冠疫苗预约订单文件
 -->
 <template>
@@ -58,7 +58,7 @@ const handleCancel = async (index: number, id: string) => {
   .order_item_group {
     .name {
       border-bottom: 1px solid #e4e4e4;
-      margin-bottom: 20rpx
+      padding-bottom: 20rpx
     }
     .info_item {
       .flex_center(flex-start);
