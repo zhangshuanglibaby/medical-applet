@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-08 10:04:38
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-12 18:19:01
+ * @LastEditTime: 2023-01-13 00:05:58
  * @Description: 这是新冠疫苗相关类型声明文件
  */
 
@@ -30,6 +30,17 @@ export interface TimeData {
   company: string[],
   lasting: Lasting[],
   week: Week[]
+}
+
+export interface CoviduserOrder {
+  address: string,
+  cancel: boolean,
+  company: string,
+  date: string,
+  name: string,
+  period: string,
+  time: string,
+  _id: string
 }
 
 // 新冠疫苗提交预约
