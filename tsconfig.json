@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES6",
     "useDefineForClassFields": true,
-    "module": "ES2015",
+    "module": "System",
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
-    "resolveJsonModule": true,
+    // "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "types": ["@dcloudio/types"],
+    "types": ["@dcloudio/types", "vite/client"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]

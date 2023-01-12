@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-12-30 17:51:21
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-11 23:57:29
+ * @LastEditTime: 2023-01-12 14:15:28
  * @Description: 这是首页文件
 -->
 <template>
@@ -16,6 +16,8 @@
     <PopularCom :data="popular" />
     <!-- 健康自测 -->
     <SleftTestCom :data="self_test" />
+    <!-- 占位盒子 -->
+    <empty-box></empty-box>
   </view>
 </template>
 
@@ -29,7 +31,6 @@ import VaccineCom from './components/Vaccine.vue'
 import ReserveCom from './components/Reserve.vue'
 import PopularCom from './components/Popular.vue'
 import SleftTestCom from './components/SleftTest.vue'
-
 
 const menu_button = reactive<MenuButton>({
   top: 0, //胶囊按钮距离顶部的高度

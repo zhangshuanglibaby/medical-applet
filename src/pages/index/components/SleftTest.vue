@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-11 20:51:24
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-11 23:56:46
+ * @LastEditTime: 2023-01-12 00:17:29
  * @Description: 这是首页-健康自测文件
 -->
 <template>
@@ -36,21 +36,23 @@
   </view>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, PropType } from 'vue'
 import { SelfTest } from '@/types/index'
 
-type Props = {
-  data: SelfTest[]
-}
-const props = defineProps<Props>()
+const props = defineProps({
+  data: {
+    type: Array as PropType<SelfTest[]>,
+    default: () => []
+  }
+})
 
 // 取出第一条数据
 const firstData = computed(() => {
-  return props.data && props.data[0] || {}
+  return props.data[0] || {}
 })
 // 下面两条数据
 const reaminData = computed(() => {
-  return props.data &&  props.data.slice(1) || []
+  return props.data.slice(1) || []
 })
 </script>
 <style lang="less" scoped>
