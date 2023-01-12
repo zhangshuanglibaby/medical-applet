@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-06 13:06:55
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-11 15:45:29
+ * @LastEditTime: 2023-01-12 22:07:47
  * @Description: 这是****文件
 -->
 ### 环境安装
@@ -40,6 +40,10 @@
     }
   }
 `
+### 登陆页
+  调用uni.getUserInfo 获取用户信息
+  调用uni.login 获取code
+  将返回的登陆信息缓存到本地 返回上一页
 
 ### 需要优化的地方
 封装按钮公共组件

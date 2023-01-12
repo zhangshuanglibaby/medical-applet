@@ -1,13 +1,13 @@
 /*
  * @Date: 2023-01-06 21:45:23
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-11 22:43:50
+ * @LastEditTime: 2023-01-12 22:07:45
  * @Description: 这是封装请求的文件
  */
 
 import { encode } from 'js-base64'
 
-const baseUrl:String = 'https://meituan.thexxdd.cn/api' // 请求域名
+const baseUrl:string = 'https://meituan.thexxdd.cn/api' // 请求域名
 
 // 获取token
 const getToken = (): String => {
@@ -19,7 +19,7 @@ const getToken = (): String => {
 }
 
 const $http = (
-  url: String,
+  url: string,
   method: 'GET' | 'POST',
   data?: Object | String | ArrayBuffer
 ) => {
@@ -36,8 +36,13 @@ const $http = (
         }
         if(res.statusCode === 401) {
           // 没有权限 跳转登陆
-          uni.showToast({ title: '请先登录', duration: 1000, icon: 'none' })
-          uni.navigateTo({ url: '/pages/login-page/index' })
+          uni.showModal({
+            title: '请先登录',
+            showCancel:false,
+            success: () => {
+              uni.navigateTo({ url: '/pages/login-page/index' })
+            }
+          })
         }else if(res.statusCode === 500) {
           uni.showToast({ title: '服务器发生位置错误', duration: 1000, icon: 'error' })
         }else if(res.statusCode === 202) {
