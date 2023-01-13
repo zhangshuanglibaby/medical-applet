@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-12 14:49:31
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-12 15:27:23
+ * @LastEditTime: 2023-01-13 16:12:24
  * @Description: 这是****文件
 -->
 <template>
@@ -21,7 +21,7 @@
 import { Event } from '@/types/common'
 type Props = {
   modelValue?: string | number,
-  mode: 'region' | 'selector',
+  mode: 'region' | 'selector' | 'date',
   title: string,
   range?: any[]
 }
@@ -29,11 +29,13 @@ const props = defineProps<Props>()
 const emit = defineEmits(['update:modelValue'])
 const handleChange = (event: Event) => {
   let value = event.detail.value
+  let params = value
   if(props.mode === 'region') {
-    emit('update:modelValue', value.join(' '))
-    return
+    params = value.join(' ')
+  }else if(props.mode === 'selector') {
+    params = (props.range as any)[value]
   }
-  emit('update:modelValue', (props.range as any)[value])
+  emit('update:modelValue', params)
 }
 
 </script>
