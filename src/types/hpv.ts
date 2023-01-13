@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-13 14:11:49
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-13 18:19:59
+ * @LastEditTime: 2023-01-13 19:50:08
  * @Description: 这是hpv疫苗相关类型声明文件
  */
 
@@ -63,4 +63,18 @@ export interface ResHpvData {
   ino_time: string,
   price: number,
   hpv_name: string
+}
+
+// hpv疫苗预约订单
+export interface HpvUserOrder {
+  address: string,
+  cancel: boolean,
+  combo: string,
+  hpv_name: string,
+  ino_time: string,
+  name: string,
+  order_number: string,
+  price: number,
+  time: string,
+  _id: string
 }
