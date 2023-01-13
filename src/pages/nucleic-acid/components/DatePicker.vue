@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-13 21:14:33
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-13 21:25:56
+ * @LastEditTime: 2023-01-13 22:38:52
  * @Description: 这是核酸检测预约 -> 选择预约时段文件
 -->
 <template>
@@ -9,15 +9,36 @@
     <view class="title">选择预约时段</view>
     <scroll-view scroll-x class="date_list_scroll">
       <view class="date_list">
-        <view class="date_item check_style" v-for="i in 6" :key="i">
-          <view>1111</view>
-          <view>2222</view>
+        <view 
+          class="date_item" 
+          :class="{ check_style: currentIndex === index }"
+          v-for="(item, index) in data" 
+          :key="index"
+          @click="handleClick(index, item.date)">
+          <view>{{ item.date }}</view>
+          <view>{{ item.week }}</view>
         </view>
       </view>
     </scroll-view>
   </view>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+import { Date } from '@/types/nucleic'
+type Props = {
+  data: Date[]
+}
+defineProps<Props>()
+const emit = defineEmits(['toggle'])
+
+// --------------选择预约时段-----------
+let currentIndex = ref<number>()
+const handleClick = (index: number, date: string) => {
+  currentIndex.value = index
+  emit('toggle', date)
+}
+
+</script>
 <style lang="less" scoped>
 .date_picker {
   .title {

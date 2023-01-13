@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-13 14:48:34
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-13 18:55:34
+ * @LastEditTime: 2023-01-13 23:04:23
  * @Description: 这是****文件
 -->
 <template>
@@ -156,7 +156,8 @@ const handleSubmit = async () => {
   uni.showLoading({ title: '提交中', mask: true })
   await resHpv(submit_data)
   setTimeout(() => {
-    uni.navigateTo({ url: '/pages/order/hpv/index'})
+    uni.hideLoading()
+    uni.redirectTo({ url: '/pages/order/hpv/index'})
   }, 400)
 }
 

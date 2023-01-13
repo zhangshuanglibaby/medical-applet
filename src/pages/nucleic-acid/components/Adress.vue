@@ -1,22 +1,37 @@
 <!--
  * @Date: 2023-01-13 21:04:26
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-13 21:15:08
+ * @LastEditTime: 2023-01-13 22:41:58
  * @Description: 这是核酸检测预约 -> 地址文件
 -->
 <template>
   <view class="address box_style">
     <view class="left">
-      <view class="main_title">1111</view>
-      <view class="sub_text">222</view>
+      <view class="main_title">{{ hospital }}</view>
+      <view class="sub_text">{{ address }}</view>
     </view>
-    <view class="right">
-      <image class="icon_image" src="/static/other/kongshuju.jpg" mode="widhtFix"></image>
-      <view class="sub_text">111</view>
+    <view class="right" @click="handleClick">
+      <image class="icon_image" src="/static/other/dianhua.svg" mode="widhtFix"></image>
+      <view class="sub_text">电话</view>
     </view>
   </view>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+type Props = {
+  hospital: string,
+  address: string,
+  phone: string
+}
+const props = defineProps<Props>()
+
+// -------------点击电话----------------------
+const handleClick = () => {
+  uni.makePhoneCall({
+    phoneNumber: props.phone
+  })
+}
+
+</script>
 <style lang="less" scoped>
 .address {
   .flex_center(space-between);

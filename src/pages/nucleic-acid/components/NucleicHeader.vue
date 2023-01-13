@@ -1,27 +1,35 @@
 <!--
  * @Date: 2023-01-13 20:44:53
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-13 21:15:14
+ * @LastEditTime: 2023-01-13 22:26:00
  * @Description: 这是核酸检测预约 -> 头部文件
 -->
 <template>
   <view class="nucleic_header box_style">
     <view class="header_top">
-      <image class="logo" src="/static/other/kongshuju.jpg" mode="aspectFill"></image>
+      <image class="logo" :src="data.logo" mode="aspectFill"></image>
       <view class="header_top_left">
-        <view class="name main_title">111</view>
-        <view class="price">111</view>
+        <view class="name main_title">{{ data.name }}</view>
+        <view class="price">¥{{ data.price }}</view>
       </view>
     </view>
     <view class="header_bottom">
-      <view class="service_item" v-for="i in 3" :key="i">
+      <view class="service_item" v-for="(item, index) in data.boon" :key="index">
         <icon type="success" size="15"></icon>
-        <text class="service_name">1111</text>
+        <text class="service_name">{{ item }}</text>
       </view>
     </view>
   </view>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { NuatagetData } from '@/types/nucleic'
+
+type Props = {
+  data: NuatagetData
+}
+defineProps<Props>()
+
+</script>
 <style lang="less" scoped>
 .nucleic_header {
   .header_top {
