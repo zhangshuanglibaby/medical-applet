@@ -35,7 +35,21 @@
 		{
 			"path": "pages/order/xinguan/index",
 			"style": {
-				"navigationBarTitleText": "新冠疫苗订单",
+				"navigationBarTitleText": "新冠疫苗预约订单",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/hpv-vaccine/index",
+			"style": {
+				"navigationBarTitleText": "宫颈癌疫苗在线预约",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/hpv-vaccine/hpv-detail/index",
+			"style": {
+				"navigationBarTitleText": "HPV套餐详情",
 				"navigationBarBackgroundColor": "#ffffff"
 			}
 		},

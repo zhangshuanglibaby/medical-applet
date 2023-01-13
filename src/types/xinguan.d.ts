@@ -1,10 +1,11 @@
 /*
  * @Date: 2023-01-08 10:04:38
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-13 00:05:58
+ * @LastEditTime: 2023-01-13 14:15:46
  * @Description: 这是新冠疫苗相关类型声明文件
  */
 
+// 新冠疫苗预约时段 - 具体时间
 export interface Time {
   end_time: string,
   over: number,
@@ -12,11 +13,13 @@ export interface Time {
   when: number
 }
 
+// 新冠疫苗预约时段 - 时段
 export interface Lasting {
   period: string,
   time: Time[]
 }
 
+// 新冠疫苗预约时段 - 日期
 export interface Week {
   Have: string,
   date: string,
@@ -32,6 +35,7 @@ export interface TimeData {
   week: Week[]
 }
 
+// 新冠疫苗预约订单
 export interface CoviduserOrder {
   address: string,
   cancel: boolean,
