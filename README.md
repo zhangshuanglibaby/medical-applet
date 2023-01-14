@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-06 13:06:55
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 16:36:22
+ * @LastEditTime: 2023-01-14 19:08:41
  * @Description: 这是****文件
 -->
 ### 环境安装
@@ -60,3 +60,4 @@
 可以从组件中 export导出类型声明
 订单列表的样式可以抽离组件
 取消预约功能 可以使用hook
+完善picker的数据绑定情况

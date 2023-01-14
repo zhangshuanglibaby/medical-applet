@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-14 16:58:22
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 17:27:06
+ * @LastEditTime: 2023-01-14 19:19:28
  * @Description: 这是****文件
 -->
 <template>
@@ -29,16 +29,16 @@
   </view>
 </template>
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
+import { onShow } from '@dcloudio/uni-app'
 import { getPatient } from '@/api/patient'
 import { GetPatientRes } from '@/types/patient'
 
 let showNoData = ref<boolean>(false)
 let list = ref<GetPatientRes[]>([])
 // -----------------获取就诊人列表--------------------
-onMounted(async () => {
+onShow(async () => {
   const res = await getPatient() as any[]
-  console.log(res, 'resre')
   list.value = res
   showNoData.value = !list.value.length
 })
