@@ -1,12 +1,15 @@
 <!--
  * @Date: 2023-01-14 16:58:22
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 19:19:28
+ * @LastEditTime: 2023-01-14 19:38:46
  * @Description: 这是****文件
 -->
 <template>
   <view class="my_patient">
-    <view class="patient_item box_style" v-for="(item, index) in list" :key="index">
+    <view class="patient_item box_style"
+      v-for="(item, index) in list" 
+      :key="index"
+      @click="handleClick(item.name, item.id)">
       <view class="top_wrap">
         <text class="name main_title">{{ item.name }}</text>
         <text class="label">{{ item.relation }}</text>
@@ -31,6 +34,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { onShow } from '@dcloudio/uni-app'
+import { useStore } from '@/store/index'
 import { getPatient } from '@/api/patient'
 import { GetPatientRes } from '@/types/patient'
 
@@ -43,6 +47,11 @@ onShow(async () => {
   showNoData.value = !list.value.length
 })
 
+// -----------------选择就诊人--------------------
+const handleClick = (name: string, _id: string) => {
+  useStore().addPatient({ name, _id })
+  uni.navigateBack({ delta: 1 })
+}
 
 // -----------------添加就诊人--------------------
 const handleSubmit = () => {

@@ -45,6 +45,7 @@
     "js-base64": "^3.7.3",
     "less": "^4.1.3",
     "less-loader": "^11.1.0",
+    "pinia": "^2.0.28",
     "vue": "^3.2.45"
   },
   "devDependencies": {
