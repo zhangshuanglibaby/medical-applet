@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-06 13:06:55
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 13:06:12
+ * @LastEditTime: 2023-01-14 16:36:22
  * @Description: 这是****文件
 -->
 ### 环境安装
@@ -44,6 +44,10 @@
   调用uni.getUserInfo 获取用户信息
   调用uni.login 获取code
   将返回的登陆信息缓存到本地 返回上一页
+
+### 封装图片上传组件
+使用uni.chooseMedia选择图片成功后，返回本地临时文件路径
+使用uni.uploadFile将本地资源上传到服务器 会返回服务器地址的图片
 
 ### 需要优化的地方
 封装按钮公共组件

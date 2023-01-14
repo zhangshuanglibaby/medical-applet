@@ -75,6 +75,13 @@
 			}
 		},
 		{
+			"path": "pages/graphics/index",
+			"style": {
+				"navigationBarTitleText": "图文咨询",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
 			"path": "pages/login-page/index",
 			"style": {
 				"navigationBarTitleText": "登陆",

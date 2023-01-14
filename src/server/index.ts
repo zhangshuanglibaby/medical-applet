@@ -1,13 +1,13 @@
 /*
  * @Date: 2023-01-06 21:45:23
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-12 22:07:45
+ * @LastEditTime: 2023-01-14 15:50:21
  * @Description: 这是封装请求的文件
  */
 
 import { encode } from 'js-base64'
 
-const baseUrl:string = 'https://meituan.thexxdd.cn/api' // 请求域名
+export const baseUrl:string = 'https://meituan.thexxdd.cn/api' // 请求域名
 
 // 获取token
 const getToken = (): String => {
