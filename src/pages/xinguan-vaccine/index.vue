@@ -1,11 +1,12 @@
 <!--
  * @Date: 2023-01-08 08:53:14
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-13 23:04:00
+ * @LastEditTime: 2023-01-15 01:02:29
  * @Description: 这是新冠疫苗预约文件
 -->
 <template>
   <view class="xinguan_vaccine">
+    <!-- 表单填写 -->
     <MyInput title="姓名" :placeholder="messageTips.name" v-model="submit_data.name"/>
     <MyInput title="身份证" :placeholder="messageTips.id_card" v-model="submit_data.id_card" />
     <MyInput title="手机号" :placeholder="messageTips.phone" v-model="submit_data.phone" />

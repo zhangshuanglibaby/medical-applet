@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-14 17:19:07
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 19:33:14
+ * @LastEditTime: 2023-01-15 00:31:16
  * @Description: 这是****文件
  */
 
@@ -12,7 +12,7 @@ export interface GetPatientRes {
   phone: string,
   relation: string,
   sex: string,
-  id: string
+  _id: string
 }
 
 // 提交就诊人信息

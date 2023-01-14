@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-14 14:59:39
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 16:34:15
+ * @LastEditTime: 2023-01-15 00:37:43
  * @Description: 这是上传图片文件
 -->
 <template>
@@ -20,55 +20,23 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { uploadPictureURl } from '@/api/graphics'
-
+import { uploadImag } from '@/utils/common'
 type Props = {
   modelValue: string[],
-  url: string
+  url?: string
 }
 const props = withDefaults(defineProps<Props>(), {
   url: uploadPictureURl
 })
-// defineProps(['modelValue'])
 const emit =  defineEmits(['update:modelValue'])
 
 let fileList = ref<string[]>([])
 
 // --------------点击上传---------------
-type ChooseMediaRes = {
-  tempFiles: any[]
-}
-const handleUpload = () => {
-  // 选择照片
-  uni.chooseMedia({
-    count: 1,
-    mediaType: ['image'],
-    success: (res:ChooseMediaRes) => {
-      console.log(res)
-      uni.showLoading({ title: '上传中', mask: true })
-      uni.uploadFile({
-        url: props.url,
-        filePath: res.tempFiles[0].tempFilePath,
-        name: 'file',
-        header: { accept: 'application/json' },
-        success: (file) => {
-          console.log(JSON.parse(file.data).data, 'filefilefile')
-          fileList.value.push(JSON.parse(file.data).data)
-          console.log(fileList.value, 'fileList.value')
-        },
-        fail: (err) => {
-          uni.showToast({ title: '上传失败', icon: 'error', duration: 600 })
-        },
-        complete: () => {
-          uni.hideLoading()
-          emit('update:modelValue', fileList.value)
-        }
-      })
-    },
-    fail: (err) => {
-      uni.showToast({ title: '上传失败', icon: 'error', duration: 600})
-      console.log(err)
-    }
-  })
+const handleUpload = async () => {
+  const res = await uploadImag({ url: props.url, success_tips: '上传中', error_tips: '上传失败'}) as string
+  fileList.value.push(res)
+  emit('update:modelValue', fileList.value)
 }
 
 // --------------点击删除---------------

@@ -1,14 +1,14 @@
 <!--
  * @Date: 2023-01-14 13:18:08
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 14:55:46
+ * @LastEditTime: 2023-01-15 00:20:27
  * @Description: 这是图文咨询 -> 需要医生指导用药文件
 -->
 <template>
   <view class="guide box_style">
     <checkbox-group @change="handleChange">
       <label>
-        <checkbox value="guide" checked="true" color="#0176ff" />需要医生指导用药
+        <checkbox value="guide" :checked="modelValue" color="#0176ff" />需要医生指导用药
       </label>
     </checkbox-group>
   </view>

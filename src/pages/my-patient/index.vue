@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-14 16:58:22
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 19:38:46
+ * @LastEditTime: 2023-01-15 00:30:52
  * @Description: 这是****文件
 -->
 <template>
@@ -9,7 +9,7 @@
     <view class="patient_item box_style"
       v-for="(item, index) in list" 
       :key="index"
-      @click="handleClick(item.name, item.id)">
+      @click="handleClick(item.name, item._id)">
       <view class="top_wrap">
         <text class="name main_title">{{ item.name }}</text>
         <text class="label">{{ item.relation }}</text>
