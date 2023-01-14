@@ -1,3 +1,9 @@
+<!--
+ * @Date: 2023-01-12 19:10:29
+ * @LastEditors: zhangshuangli
+ * @LastEditTime: 2023-01-14 17:16:33
+ * @Description: 这是公用的底部按钮文件
+-->
 <template>
   <view class="footer_btn">
     <slot>
@@ -16,6 +22,7 @@ withDefaults(defineProps<Props>(), {
   submit_label: '提交'
 })
 defineEmits(['cancel', 'submit'])
+
 </script>
 <style lang="less" scoped>
 .footer_btn {
