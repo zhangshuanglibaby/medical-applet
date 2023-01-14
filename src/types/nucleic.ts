@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-13 22:11:22
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-13 22:44:03
+ * @LastEditTime: 2023-01-14 13:12:04
  * @Description: 这是核酸检测相关类型声明文件
  */
 
@@ -33,4 +33,17 @@ export interface ResNuataData {
   phone: string,
   id_card: string,
   time: string
+}
+
+// 核酸检测订单
+export interface NuatauserOrder {
+  address: string,
+  cancel: boolean,
+  name: string,
+  order_number: string,
+  phy_name: string,
+  phy_time: string,
+  price: number,
+  time: string,
+  _id: string
 }
