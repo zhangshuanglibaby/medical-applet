@@ -1,21 +1,29 @@
 <!--
  * @Date: 2023-01-15 19:47:34
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-15 20:13:28
+ * @LastEditTime: 2023-01-15 22:31:48
  * @Description: 这是体检详情 -> 适用人群文件
 -->
 <template>
   <view class="crowd box_style">
     <view class="sub_title">入职体检套餐</view>
     <view class="list">
-      <view class="item" v-for="i in 3" :key="i">
-        <image class="image" src="/static/other/kongshuju.jpg" mode="widthFix"></image>
-        <view>1111</view>
+      <view class="item" v-for="(item, index) in data" :key="index">
+        <image class="image" :src="item.image" mode="aspectFill"></image>
+        <view>{{ item.name }}</view>
       </view>
     </view>
   </view>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Crowd } from '@/types/phy-exam'
+
+type Props = {
+  data: Crowd[]
+}
+defineProps<Props>()
+
+</script>
 <style lang="less" scoped>
 .crowd {
   .list {

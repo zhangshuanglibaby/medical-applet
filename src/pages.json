@@ -110,6 +110,13 @@
 			}
 		},
 		{
+			"path": "pages/order/phy-exam/index",
+			"style": {
+				"navigationBarTitleText": "体检预约订单",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
 			"path": "pages/login-page/index",
 			"style": {
 				"navigationBarTitleText": "登陆",

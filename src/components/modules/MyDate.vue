@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-15 20:03:01
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-15 20:07:27
+ * @LastEditTime: 2023-01-15 21:07:18
  * @Description: 这是****文件
 -->
 <template>
@@ -43,7 +43,7 @@ const handleClick = (index: number, date: string) => {
 
 </script>
 <style lang="less" scoped>
-.date_picker {
+.date {
   .title {
     font-weight: 32rpx;
     font-weight: bold;
