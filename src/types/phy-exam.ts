@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-15 17:15:30
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-15 22:15:28
+ * @LastEditTime: 2023-01-15 23:35:24
  * @Description: 这是体检套餐相关类型声明文件
  */
 
@@ -60,4 +60,17 @@ export interface Resphy {
   phy_name: string,
   phy_time: string,
   patient_id: string
+}
+
+// 体检预约订单
+export interface PhyuserOrder {
+  address: string,
+  cancel: boolean,
+  name: string,
+  order_number: string,
+  phy_name: string,
+  phy_time: string,
+  price: number,
+  time: string
+  _id: string
 }

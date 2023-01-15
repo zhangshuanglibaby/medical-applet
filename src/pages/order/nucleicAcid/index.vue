@@ -1,11 +1,11 @@
 <!--
  * @Date: 2023-01-13 22:58:50
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 13:15:46
+ * @LastEditTime: 2023-01-15 23:43:59
  * @Description: 这是核酸检测预约订单文件
 -->
 <template>
-  <view class="order_nucleic">
+  <view class="order">
     <view class="order_item_group box_style" v-for="(item, index) in orderList" :key="index">
       <view class="name main_title">{{ item.phy_name }}</view>
       <view class="info_item">
@@ -59,38 +59,5 @@ const handleCancel = async (index: number, id: string) => {
 }
 </script>
 <style lang="less" scoped>
-.order_nucleic {
-  .order_item_group {
-    .name {
-      border-bottom: 1px solid #e4e4e4;
-      padding-bottom: 20rpx
-    }
-    .info_item {
-      .flex_center(flex-start);
-      padding: 20rpx 0;
-      text {
-        &:first-child {
-          width: 150rpx;
-        }
-        &:last-child {
-          flex: 1;
-        }
-      }
-    }
-    .price {
-      text-align: right;
-      font-weight: bold;
-    }
-    .btn {
-      .wh(160rpx, 60rpx);
-      .flex_center;
-      margin-top: 20rpx;
-      color: @primary;
-      border: 1px solid @primary;
-      border-radius: 15rpx;
-      font-size: 26rpx;
-      margin-left: auto;
-    }
-  }
-}
+@import url('@/style/order.less');
 </style>
