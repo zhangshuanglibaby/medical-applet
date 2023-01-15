@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-13 20:38:55
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-13 23:04:39
+ * @LastEditTime: 2023-01-15 20:08:09
  * @Description: 这是核酸检测预约文件
 -->
 <template>
@@ -15,7 +15,7 @@
     <MyInput v-model="submit_data.phone" title="手机号" :placeholder="messageTips.phone" />
     <MyInput v-model="submit_data.id_card" title="身份证" :placeholder="messageTips.id_card" />
     <!-- 选择预约时段 -->
-    <DatePicker :data="nuataget_data.date" @toggle="toggleDate" />
+    <MyDate v-model="submit_data.time" :data="nuataget_data.date" title="选择预约时段" />
     <!-- 咽拭子采样方式 -->
     <Sampling :data="nuataget_data.style" />
     <!-- 提交按钮 -->
@@ -35,7 +35,7 @@ import { validatorName, validatorIdNo, validatorPhone } from '@/utils/validator'
 import NucleicHeadr from './components/NucleicHeader.vue'
 import Adress from './components/Adress.vue'
 import MyInput from '@/components/modules/MyInput.vue'
-import DatePicker from './components/DatePicker.vue'
+import MyDate from '@/components/modules/MyDate.vue'
 import Sampling from './components/Sampling.vue'
 
 // 提示
@@ -73,11 +73,6 @@ onMounted(async () => {
   const res = await nuataget() as any[]
   state.nuataget_data = res[0]
 })
-
-//--------------选择预约时间段--------------------
-const toggleDate = (date: string) => {
-  state.submit_data.time = date
-}
 
 
 //--------------提交核酸检测预约--------------------
