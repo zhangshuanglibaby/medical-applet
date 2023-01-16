@@ -126,7 +126,14 @@
 		{
 			"path": "pages/self_test/index",
 			"style": {
-				"navigationBarTitleText": "抑郁测评专业版",
+				"navigationBarTitleText": "测评题目",
+				"navigationBarBackgroundColor": "#d6e8ff"
+			}
+		},
+		{
+			"path": "pages/self_test/result/index",
+			"style": {
+				"navigationBarTitleText": "测评结果",
 				"navigationBarBackgroundColor": "#d6e8ff"
 			}
 		},
