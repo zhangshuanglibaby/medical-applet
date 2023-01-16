@@ -1,13 +1,15 @@
 <!--
  * @Date: 2023-01-12 19:10:29
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 17:16:33
+ * @LastEditTime: 2023-01-16 22:36:15
  * @Description: 这是公用的底部按钮文件
 -->
 <template>
   <view class="footer_btn">
     <slot>
-      <button class="btn" size="small" @click="$emit('cancel')">{{ cancel_label }}</button>
+      <slot name="left">
+        <button class="btn" size="small" @click="$emit('cancel')">{{ cancel_label }}</button>
+      </slot>
       <button class="btn" size="small" @click="$emit('submit')">{{ submit_label }}</button>
     </slot>
   </view>

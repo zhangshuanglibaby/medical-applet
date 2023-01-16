@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-16 19:01:04
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-16 21:18:02
+ * @LastEditTime: 2023-01-16 23:02:24
  * @Description: 这是****文件
 -->
 <template>
@@ -67,7 +67,14 @@ let topic_ids = ref<string[]>([]) // 存储答题的选项
   title && uni.setNavigationBarTitle({ title })
  })
 
+ // ----------初始化--------------
+ const init = () => {
+  list.value = []
+  currentIndex.value = 0
+  topic_ids.value = []
+ }
  onShow(async () => {
+  init()
   const method = typeMap.get(currentType.value)?.method
   if(!method) return
   const res = await method() as TopicData[]
