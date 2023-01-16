@@ -124,6 +124,13 @@
 			}
 		},
 		{
+			"path": "pages/self_test/index",
+			"style": {
+				"navigationBarTitleText": "抑郁测评专业版",
+				"navigationBarBackgroundColor": "#d6e8ff"
+			}
+		},
+		{
 			"path": "pages/login-page/index",
 			"style": {
 				"navigationBarTitleText": "登陆",

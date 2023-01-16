@@ -15,8 +15,8 @@
   font-weight: bold;
 }
 // 盒子样式
-.box_style {
-  background-color: #ffffff;
+.box_style{
+  background-color: #fff;
   padding: 20rpx;
   margin: 20rpx;
   border-radius: 10rpx;
@@ -119,6 +119,11 @@
 .felx_column_center(@justifyType: center, @alignType: center) {
   .flex_center(@justifyType, @alignType);
   flex-direction: column;
+}
+
+.flex_align(@type: center) {
+  display: flex;
+  align-items: @type;
 }
 
 .flex_sub {
