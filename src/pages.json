@@ -10,7 +10,7 @@
 		{
 			"path": "pages/registered/index",
 			"style": {
-				"navigationBarTitleText": "科室列表"
+				"navigationBarTitleText": "预约挂号"
 			}
 		},
 		{
@@ -113,6 +113,13 @@
 			"path": "pages/order/phy-exam/index",
 			"style": {
 				"navigationBarTitleText": "体检预约订单",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/doctor/index",
+			"style": {
+				"navigationBarTitleText": "选择医生",
 				"navigationBarBackgroundColor": "#ffffff"
 			}
 		},
