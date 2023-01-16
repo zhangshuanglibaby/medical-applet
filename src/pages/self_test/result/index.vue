@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-16 21:04:58
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-16 22:57:36
+ * @LastEditTime: 2023-01-16 23:05:01
  * @Description: 这是健康自测 -> 测评结果文件
 -->
 <template>
@@ -19,14 +19,16 @@
       <view v-for="(item, index) in result?.outline" :key="index">
         {{ index + 1 }}. {{ item }}
       </view>
-      <view class="title_bold">AI为你推荐以下科室:</view>
-      <view class="recommend" v-for="item in result?.recommend" :key="item.dep_id">
-        <view class="recommend_info">
-          <view class="title_bold">{{ item.dep_name }}</view>
-          <view class="address">{{ item.hospital }}</view>
+      <block v-if="result?.recommend.length">
+        <view class="title_bold">AI为你推荐以下科室:</view>
+        <view class="recommend" v-for="item in result?.recommend" :key="item.dep_id">
+          <view class="recommend_info">
+            <view class="title_bold">{{ item.dep_name }}</view>
+            <view class="address">{{ item.hospital }}</view>
+          </view>
+          <button size="small" class="btn" @click="clickGuahao(item.dep_id)">去挂号</button>
         </view>
-        <button size="small" class="btn" @click="clickGuahao(item.dep_id)">去挂号</button>
-      </view>
+      </block>
     </view>
 
     <!-- 底部按钮 -->
