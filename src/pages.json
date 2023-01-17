@@ -131,6 +131,13 @@
 			}
 		},
 		{
+			"path": "pages/order/guahao/index",
+			"style": {
+				"navigationBarTitleText": "挂号记录",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
 			"path": "pages/self_test/index",
 			"style": {
 				"navigationBarTitleText": "测评题目",

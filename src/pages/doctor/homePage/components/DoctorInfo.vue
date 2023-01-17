@@ -1,24 +1,35 @@
 <!--
  * @Date: 2023-01-17 14:26:12
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-17 14:37:43
+ * @LastEditTime: 2023-01-17 16:03:56
  * @Description: 这是医生主页 -> 医生信息文件
 -->
 <template>
   <view class="doctor_info box_style">
     <view class="top">
-      <image class="doctor_image" src="/static/other/kongshuju.jpg" mode="aspectFill"></image>
+      <image class="doctor_image" :src="data.avatar" mode="aspectFill"></image>
       <view class="doctor_intro">
         <view class="doctor_post">
-          <text class="main_title">111</text>1111
+          <text class="main_title">{{ data.name}}</text>{{ data.post}}
         </view>
-        <view>1111</view>
+        <view>{{ data.hospital }}</view>
       </view>
     </view>
-    <view class="good_at">111111111</view>
+    <view class="good_at">{{ data.good_at }}</view>
   </view>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { DoctorHome } from '@/types/registered'
+
+type Props = {
+  data: DoctorHome
+}
+defineProps<Props>()
+
+
+
+
+</script>
 <style lang="less" scoped>
 .doctor_info {
   .top {

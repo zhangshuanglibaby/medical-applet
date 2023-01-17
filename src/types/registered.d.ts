@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-16 13:55:05
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-17 13:20:54
+ * @LastEditTime: 2023-01-17 15:45:14
  * @Description: 这是挂科预约相关的类型声明文件文件
  */
 
@@ -42,4 +42,37 @@ export interface DoctorList {
   name: string,
   post: string,
   _id: string
+}
+
+export interface Time {
+  already: number,
+  nu_source: number,
+  the_time: string[]
+  when: number
+}
+export interface Appment {
+  day: string,
+  time: Time[],
+  total_source: number,
+  week: string
+}
+// 挂号医生主页
+export interface DoctorHome {
+  App_ment: Appment[],
+  avatar: string,
+  cost: number,
+  good_at: string,
+  hospital: string,
+  name: string,
+  post: string,
+  _id: string
+}
+
+// 提交预约挂号
+export interface Regappoin {
+  week: string,
+  the_time: string,
+  when: number,
+  _id: string,
+  patient_id: string
 }

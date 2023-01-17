@@ -1,21 +1,25 @@
 <!--
  * @Date: 2023-01-17 15:02:43
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-17 15:19:06
+ * @LastEditTime: 2023-01-17 16:50:26
  * @Description: 这是医生主页 -> 提交预约弹窗文件
 -->
 <template>
-  <page-container :show="show">
+  <page-container :show="show" @clickoverlay="show = false">
     <view class="content">
       <view class="main_title">请选择预约时间段</view>
       <view class="time">
-        <view class="time_item check_style">2222</view>
+        <view class="time_item"
+          :class="{ check_style: currentIndex === index }"
+          v-for="(item, index) in time_arr"
+          :key="index"
+          @click="clickTime(index)">{{ item }}</view>
       </view>
       <view class="main_title">选择成员</view>
       <view class="member_view">
-        <image class="avator" src="/static/other/kongshuju.jpg" mode="aspectFill"></image>
-        <text class="name">111</text>
-        <text class="label">选择成员</text>
+        <image class="avator" src="/static/other/touxiang.svg" mode="aspectFill"></image>
+        <text class="name">{{ name }}</text>
+        <text class="label" @click="jumpRoute">{{ name ? '重新选择' : '选择就诊人'}}</text>
       </view>
       <button class="btn" @click="handleSubmit">提交预约</button>
     </view>
@@ -23,18 +27,45 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useStore } from '@/store/index'
 
 const emit = defineEmits(['submit'])
 // --------------显示弹窗----------------
-let show = ref<boolean>(false)
-const open = () => {
+let show = ref<boolean>(false) // 控制弹窗显现
+let time_arr = ref<string[]>([]) // 展示时间段
+let currentIndex = ref<number>(0)
+let name = ref<string>('') // 就诊人姓名
+const open = (timeArr: string[]) => {
   show.value = true
+  time_arr.value = timeArr
 }
 defineExpose({ open })
 
+// --------------选择时间段----------------
+const clickTime = (index: number) => {
+  currentIndex.value = index
+}
+
+// --------------选择就诊人----------------
+const jumpRoute = () => {
+  uni.navigateTo({
+    url: '/pages/my-patient/index'
+  })
+}
+
+// --------------监听store改变------------------
+const store = useStore()
+store.$subscribe(() => {
+  name.value = store.patient.name
+})
+
 // --------------提交预约----------------
 const handleSubmit = () => {
-  emit('submit')
+  const value = {
+    the_time: time_arr.value[currentIndex.value],
+    patient_id: store.patient._id
+  }
+  emit('submit', value)
 }
 
 
