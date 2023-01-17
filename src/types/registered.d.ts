@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-16 13:55:05
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-16 17:16:04
+ * @LastEditTime: 2023-01-17 13:20:54
  * @Description: 这是挂科预约相关的类型声明文件文件
  */
 
@@ -33,4 +33,13 @@ export interface Timesele {
   dep_id: string,
   nu_source: number,
   week: string
+}
+
+// 医生列表
+export interface DoctorList {
+  avatar: string,
+  good_at: string,
+  name: string,
+  post: string,
+  _id: string
 }

@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-16 15:52:00
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-16 17:42:29
+ * @LastEditTime: 2023-01-17 13:17:38
  * @Description: 这是****文件
 -->
 <template>
@@ -49,6 +49,7 @@ const handleSelect = (date: string) => {
 .filter {
   display: flex;
   background-color: #fff;
+  margin-bottom: 20rpx;
   .all {
     .wh(100rpx, 150rpx);
     line-height: 150rpx;

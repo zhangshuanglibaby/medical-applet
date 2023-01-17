@@ -124,6 +124,13 @@
 			}
 		},
 		{
+			"path": "pages/doctor/homePage/index",
+			"style": {
+				"navigationBarTitleText": "医生主页",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},
+		{
 			"path": "pages/self_test/index",
 			"style": {
 				"navigationBarTitleText": "测评题目",
