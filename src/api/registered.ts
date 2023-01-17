@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-16 13:53:00
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-17 16:51:37
+ * @LastEditTime: 2023-01-17 18:38:27
  * @Description: 这是挂科预约相关请求文件
  */
 import $http from "@/server"
@@ -28,3 +28,9 @@ export const doctorhome = (id: ID) => $http('/doctorhome', 'GET', id)
 
 // 提交挂号预约
 export const regappoin  = (data: Regappoin) => $http('/regappoin', 'POST', data)
+
+// 用户的挂号记录
+export const userRegistrat = () => $http('/user_registrat', 'GET')
+
+// 取消预约挂号
+export const registCancel = (id: ID) => $http('/regist_cancel', 'GET', id)

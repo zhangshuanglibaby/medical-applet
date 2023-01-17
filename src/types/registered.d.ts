@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-01-16 13:55:05
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-17 15:45:14
+ * @LastEditTime: 2023-01-17 18:36:47
  * @Description: 这是挂科预约相关的类型声明文件文件
  */
 
@@ -75,4 +75,21 @@ export interface Regappoin {
   when: number,
   _id: string,
   patient_id: string
+}
+
+// 用户的挂号记录
+export interface UserRegistrat {
+  _id: string,
+  avatar: string,
+  cancel: boolean,
+  dep_ment: string,
+  que_number: number,
+  reg_cost: number,
+  remark: string,
+  se_number: string,
+  the_time: string,
+  tre_doctor: string,
+  tre_place: string,
+  tre_time: string,
+  patient_name: string
 }
