@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-11 17:10:03
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-11 21:31:31
+ * @LastEditTime: 2023-01-18 23:16:16
  * @Description: 这是首页-自定义的导航栏文件
 -->
 <template>
@@ -12,13 +12,22 @@
   </view>
   <image
     mode="aspectFill"
-    src="https://diancan-1252107261.cos.accelerate.myqcloud.com/yiliao/nav-yiyu.png"></image>
+    src="https://diancan-1252107261.cos.accelerate.myqcloud.com/yiliao/nav-yiyu.png"
+    @click="jumpRoute"></image>
 </template>
 <script setup lang="ts">
 defineProps({
   top: [String, Number], //胶囊按钮距离顶部的高度
   height: [String, Number] //胶囊按钮的高度
 })
+
+// --------------点击跳转----------------
+const jumpRoute = () => {
+  uni.navigateTo({
+    url: '/pages/self_test/index?type=' + '001'
+  })
+}
+
 </script>
 <style lang="less" scoped>
 .navigation_bar {

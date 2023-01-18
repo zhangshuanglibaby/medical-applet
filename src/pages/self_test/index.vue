@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-16 19:01:04
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-16 23:02:24
+ * @LastEditTime: 2023-01-18 23:17:13
  * @Description: 这是****文件
 -->
 <template>
@@ -57,10 +57,7 @@ let currentType = ref<string>('') // 记录当前的页面类型
 let list = ref<TopicData[]>([]) // 存储题目列表
 let currentIndex = ref<number>(0) // 记录当前展示题目索引
 let topic_ids = ref<string[]>([]) // 存储答题的选项
- onLoad(() => {
-  let event = {
-    type: '002'
-  }
+ onLoad((event: any) => {
   currentType.value = event.type
   const title = typeMap.get(currentType.value)?.title + '专业测评'
   // 动态设置当前页面的标题

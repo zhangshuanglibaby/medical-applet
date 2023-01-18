@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-11 20:51:24
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-12 00:17:29
+ * @LastEditTime: 2023-01-18 23:34:25
  * @Description: 这是首页-健康自测文件
 -->
 <template>
@@ -9,7 +9,7 @@
     <view class="main_title">健康自测</view>
     <view class="content">
       <!-- 上面第一个 -->
-      <view class="content_item content_top">
+      <view class="content_item content_top" @click="jumpRoute(0)">
         <view class="test_info">
           <view class="test_title">{{ firstData.name }}</view>
           <view class="test_label">{{ firstData.describe }}</view>
@@ -21,7 +21,10 @@
         <image :src="firstData.image" mode="widthFix"></image>
       </view>
       <!-- 下面两个 -->
-      <view class="content_item" v-for="(item, index) in reaminData" :key="index">
+      <view class="content_item"
+        v-for="(item, index) in reaminData"
+        :key="index"
+        @click="jumpRoute(index+ 1)">
         <view class="test_info">
           <view class="test_title">{{ item.name }}</view>
           <view class="test_label test_min">{{ item.question }}题 / {{ item.minute }}分钟</view>
@@ -54,6 +57,22 @@ const firstData = computed(() => {
 const reaminData = computed(() => {
   return props.data.slice(1) || []
 })
+
+// ------------点击跳转----------------
+const jumpRoute = (index: number) => {
+  switch (index) {
+    case 0: // 抑郁症
+      uni.navigateTo({ url: '/pages/self_test/index?type=' + '001' })
+    break
+    case 1: // 男性功能
+      uni.navigateTo({ url: '/pages/self_test/index?type=' + '002' })
+    break
+    case 2: // 失眠
+      uni.navigateTo({ url: '/pages/self_test/index?type=' + '003' })
+    break
+  }
+}
+
 </script>
 <style lang="less" scoped>
 .self_test {

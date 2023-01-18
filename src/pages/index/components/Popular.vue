@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-11 18:50:07
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-11 22:44:31
+ * @LastEditTime: 2023-01-18 23:30:47
  * @Description: 这是首页-热门挂号文件
 -->
 <template>
@@ -9,7 +9,7 @@
     <!-- 标题 -->
     <view class="title_wrap">
       <text class="main_title">热门挂号</text>
-      <view class="more">
+      <view class="more" @click="jumpRoute('more', '')">
         <text>查看更多</text>
         <image src="/static/other/gengduo.svg"></image>
       </view>
@@ -19,7 +19,8 @@
       <view class="item"
         v-for="(item, index) in data"
         :key="index"
-        :style="{ backgroundColor: item.background }">
+        :style="{ backgroundColor: item.background }"
+        @click="jumpRoute('dep', item.dep_id)">
         <text>{{ item.title }}</text>
         <image :src="item.image" mode="aspectFit"></image>
       </view>
@@ -33,6 +34,18 @@ type Props = {
   data: Popular[]
 }
 defineProps<Props>()
+
+// ------------点击跳转----------------
+const jumpRoute = (type: string, value: string) => {
+  switch (type) {
+    case 'more':
+      uni.switchTab({ url: '/pages/registered/index' })
+    break
+    case 'dep':
+      uni.navigateTo({ url: '/pages/doctor/index?id=' + value })
+  }
+
+}
 
 </script>
 <style lang="less" scoped>

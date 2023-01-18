@@ -1,12 +1,15 @@
 <!--
  * @Date: 2022-12-30 17:51:21
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-11 23:58:17
+ * @LastEditTime: 2023-01-18 23:24:24
  * @Description: 这是首页-挂号和体检文件
 -->
 <template>
   <view class="reserve">
-    <view class="reserve_item" v-for="(item, index) in data" :key="index">
+    <view class="reserve_item"
+      v-for="(item, index) in data"
+      :key="index"
+      @click="jumpRoute(index)">
       <view class="reserve_item_title">{{ item.title }}</view>
       <view class="reserve_item_label">{{ item.describe }}</view>
       <image mode="widthFix" :src="item.image"></image>
@@ -20,6 +23,20 @@ type Props = {
   data: Reserve[]
 }
 defineProps<Props>()
+
+// ------------点击跳转----------------
+const jumpRoute = (index: number) => {
+  switch (index) {
+    case 0: // 预约挂号
+      uni.switchTab({ url: '/pages/registered/index' })
+    break
+    case 1: // 健康体检
+      uni.navigateTo({ url: '/pages/phy-exam/index' })
+    break
+  }
+}
+
+
 </script>
 <style lang="less" scoped>
 .reserve {
