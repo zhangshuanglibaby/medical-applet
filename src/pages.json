@@ -22,7 +22,8 @@
 		{
 			"path": "pages/mine/index",
 			"style": {
-				"navigationBarTitleText": "个人中心"
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#e3efff"
 			}
 		},
 		{
