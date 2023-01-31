@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-15 19:29:44
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-15 22:30:55
+ * @LastEditTime: 2023-01-31 15:13:45
  * @Description: 这是体检套餐详情文件
 -->
 <template>
@@ -54,7 +54,7 @@ let phydateil_data = ref<Phydetail>({
   _id: ''
 })
 // 体检预约提交数据
-let submit_data = reactive<Resphy>({
+let submit_data: Resphy = reactive({
   phy_name: '',
   phy_time: '',
   patient_id: ''

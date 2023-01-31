@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-08 08:53:14
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-15 01:02:29
+ * @LastEditTime: 2023-01-31 15:14:20
  * @Description: 这是新冠疫苗预约文件
 -->
 <template>
@@ -59,7 +59,7 @@ type Data = {
   time_data: TimeData,
   submit_data: SubmitData
 }
-const state = reactive<Data>({
+const state: Data = reactive({
   time_data: { // 新冠疫苗预约时段
     Hospital: "",
     address: "",

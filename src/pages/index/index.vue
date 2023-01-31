@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-12-30 17:51:21
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-18 23:17:51
+ * @LastEditTime: 2023-01-31 15:10:20
  * @Description: 这是首页文件
 -->
 <template>
@@ -32,9 +32,9 @@ import ReserveCom from './components/Reserve.vue'
 import PopularCom from './components/Popular.vue'
 import SleftTestCom from './components/SleftTest.vue'
 
-const menu_button = reactive<MenuButton>({
+const menu_button: MenuButton = reactive({
   top: 0, //胶囊按钮距离顶部的高度
-   height: 0 //胶囊按钮的高度
+  height: 0 //胶囊按钮的高度
 })
 
 let vaccine = ref<Vaccine[]>([]) // 疫苗预约数据

@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-17 13:44:57
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-17 16:54:34
+ * @LastEditTime: 2023-01-31 15:10:17
  * @Description: 这是选择医生 -> 医生主页文件
 -->
 <template>
@@ -33,7 +33,7 @@ type Data = {
   doctorhome_data: DoctorHome
   submit_data: Regappoin
 }
-const state = reactive<Data>({
+const state: Data = reactive({
   doctorhome_data: { // 挂号医生主页信息
     App_ment: [],
     avatar: '',

@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-15 13:40:23
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-15 19:37:28
+ * @LastEditTime: 2023-01-31 15:13:31
  * @Description: 这是体检预约文件
 -->
 <template>
@@ -32,7 +32,7 @@ onMounted(async () => {
 })
 
 // 筛选体检套餐
-const query_data = reactive<PhyQuery>({
+const query_data: PhyQuery = reactive({
   type: '',
   sales: '',
   price: ''

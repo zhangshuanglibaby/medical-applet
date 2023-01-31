@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-13 14:48:34
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-16 13:54:22
+ * @LastEditTime: 2023-01-31 15:11:27
  * @Description: 这是****文件
 -->
 <template>
@@ -42,7 +42,7 @@ import MyPicker from '@/components/modules/MyPicker.vue'
 import HpvPackage from './components/HpvPackage.vue'
 
 // 提交数据
-const submit_data = reactive<ResHpvData>({
+const submit_data: ResHpvData = reactive({
   name: "",
   id_card: "",
   gender: "",
@@ -64,10 +64,10 @@ const messageTis = { // 文案提示
 }
 // hpv信息
 let hpv_info = reactive({
-    id: "",
-    name: "",
-    describe: [''],
-    price: ['']
+  id: "",
+  name: "",
+  describe: [''],
+  price: ['']
 })
 let hpv_combo_name = ref<HpvComboNameData>() // 套餐名称
 let hpv_combo_time = ref<HpvComboTimeData>() // 接种时间

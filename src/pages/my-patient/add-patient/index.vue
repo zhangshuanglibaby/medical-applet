@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-14 17:25:16
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 19:19:33
+ * @LastEditTime: 2023-01-31 15:13:02
  * @Description: 这是添加就诊人文件
 -->
 <template>
@@ -48,7 +48,7 @@ const message_tips = {
 }
 
 // 就诊人信息数据
-const submit_data = reactive<PatientRes>({
+const submit_data: PatientRes = reactive({
   name: '',
   sex: '',
   born: '',

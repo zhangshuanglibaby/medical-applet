@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-13 20:38:55
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-15 20:08:09
+ * @LastEditTime: 2023-01-31 15:13:18
  * @Description: 这是核酸检测预约文件
 -->
 <template>
@@ -50,7 +50,7 @@ type Data = {
   nuataget_data: NuatagetData,
   submit_data: ResNuataData
 }
-const state = reactive<Data>({
+const state: Data = reactive({
   nuataget_data: { // 核酸检测页面数据
     address: "",
     boon: [],

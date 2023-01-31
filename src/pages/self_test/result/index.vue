@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-16 21:04:58
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-16 23:05:01
+ * @LastEditTime: 2023-01-31 15:14:11
  * @Description: 这是健康自测 -> 测评结果文件
 -->
 <template>
@@ -42,7 +42,7 @@
 </template>
 <script setup lang="ts">
 import { onLoad, onShareAppMessage } from '@dcloudio/uni-app'
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import { depression, premature, insomnia } from '@/api/self-test'
 import { Result, ShareData } from '@/types/self-test'
 import { shareMessage } from './constant/index'

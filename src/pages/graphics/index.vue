@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-14 13:18:08
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-15 00:54:58
+ * @LastEditTime: 2023-01-31 15:10:54
  * @Description: 这是图文咨询文件
 -->
 <template>
@@ -40,7 +40,7 @@ const message_tips = {
   patient_id: '请选择就诊人',
 }
 // 提交图文咨询数据
-const submit_data = reactive<graphicsData>({
+const submit_data: graphicsData = reactive({
   illness: '',
   guide: false,
   ins_report: [],

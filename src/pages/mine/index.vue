@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-06 16:17:57
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-18 12:47:56
+ * @LastEditTime: 2023-01-31 15:12:49
  * @Description: 这是个人中心文件
 -->
 <template>
@@ -43,7 +43,7 @@ type UserInfo = {
   nickName: string
 }
 // 用户信息
-const user_info = reactive<UserInfo>({ avatarUrl: '', nickName: ''})
+const user_info: UserInfo = reactive({ avatarUrl: '', nickName: ''})
 onShow(() => {
   let wxuser = uni.getStorageSync('wxuser') as UserInfo
   if(!wxuser) {
