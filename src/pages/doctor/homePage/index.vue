@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-17 13:44:57
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-31 15:10:17
+ * @LastEditTime: 2023-01-31 21:16:34
  * @Description: 这是选择医生 -> 医生主页文件
 -->
 <template>
@@ -29,6 +29,7 @@ import { DoctorHome, Regappoin, Time } from '@/types/registered'
 import DoctorInfo from './components/DoctorInfo.vue'
 import Guahao from './components/Guahao.vue'
 import GuahaoPopup from './components/GuahaoPopup.vue'
+
 type Data = {
   doctorhome_data: DoctorHome
   submit_data: Regappoin
@@ -60,12 +61,12 @@ onLoad(async (event: any) => {
 
 
 // -------------点击挂号预约----------------
-const guahaoPopup = ref()
+const guahaoPopup = ref<InstanceType<typeof GuahaoPopup>| null>(null)
 const handleSelect = (value: { week: string, time: Time}) => {
   state.submit_data.week = value.week
   state.submit_data.when = value.time.when
   // 打开提交预约弹窗
-  guahaoPopup.value.open(value.time.the_time)
+  guahaoPopup.value?.open(value.time.the_time)
 }
 
 // -------------提交预约----------------

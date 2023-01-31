@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-15 19:29:44
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-31 15:13:45
+ * @LastEditTime: 2023-01-31 21:17:42
  * @Description: 这是体检套餐详情文件
 -->
 <template>
@@ -67,10 +67,10 @@ onLoad(async (event: any) => {
 })
 
 // -----------------点击选择成员-------------------
-let memberRef = ref() // 获取member实例
+let memberRef = ref<InstanceType<typeof Member> |null>(null) // 获取member实例
 const handleClickMember = () => {
   // 展示弹窗
-  memberRef.value.open()
+  memberRef.value?.open()
 }
 
 // -----------------提交预约-------------------
