@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-14 14:20:30
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-14 14:43:07
+ * @LastEditTime: 2023-01-31 23:29:44
  * @Description: 这是图文咨询 -> 描述病情文件
 -->
 <template>
@@ -16,7 +16,6 @@
 </template>
 <script setup lang="ts">
 defineProps(['modelValue'])
-defineEmits(['update:modelValue'])
 
 </script>
 <style lang="less" scoped>

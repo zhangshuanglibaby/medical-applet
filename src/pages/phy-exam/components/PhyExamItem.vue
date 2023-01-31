@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-15 19:03:55
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-15 19:37:11
+ * @LastEditTime: 2023-01-31 23:29:53
  * @Description: 这是体检套餐预约 -> 项目item文件
 -->
 <template>
@@ -27,7 +27,6 @@ type Props = {
   data: Physget
 }
 defineProps<Props>()
-defineEmits(['clickItem'])
 
 </script>
 <style lang="less" scoped>

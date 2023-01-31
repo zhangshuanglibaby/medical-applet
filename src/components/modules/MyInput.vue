@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-12 14:19:25
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-12 15:27:34
+ * @LastEditTime: 2023-01-31 23:29:38
  * @Description: 这是自定义输入框文件
 -->
 <template>
@@ -18,7 +18,6 @@
 </template>
 <script setup lang="ts">
 defineProps(['modelValue', 'title', 'placeholder'])
-defineEmits(['update:modelValue'])
 </script>
 <style lang="less">
 .my_input {

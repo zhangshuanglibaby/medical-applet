@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-01-12 19:10:29
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-16 22:36:15
+ * @LastEditTime: 2023-01-31 21:50:22
  * @Description: 这是公用的底部按钮文件
 -->
 <template>
@@ -23,7 +23,6 @@ withDefaults(defineProps<Props>(), {
   cancel_label: '取消',
   submit_label: '提交'
 })
-defineEmits(['cancel', 'submit'])
 
 </script>
 <style lang="less" scoped>
