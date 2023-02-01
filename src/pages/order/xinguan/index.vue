@@ -1,12 +1,12 @@
 <!--
  * @Date: 2023-01-12 22:32:19
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-13 19:57:49
+ * @LastEditTime: 2023-02-01 23:49:19
  * @Description: 这是新冠疫苗预约订单文件
 -->
 <template>
   <view class="order_xinguan">
-    <view class="order_item_group box_style" v-for="(item, index) in orderList" :key="index">
+    <view class="order_item_group box_style" v-for="(item, index) in list" :key="index">
       <view class="name main_title">{{ item.name }}</view>
       <view class="info_item">
         <text>接种地点: </text>
@@ -32,25 +32,29 @@
   </view>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-import { onShow } from '@dcloudio/uni-app'
 import { CoviduserOrder } from '@/types/xinguan'
 import { coviduserOrder, covidCancel } from '@/api/xinguan'
+import { useOrderList, useCancel } from '@/hook/useOrder'
 
-const orderList = ref<CoviduserOrder[]>([])
-const showNoData = ref<boolean>(false)
+// 使用组合式函数
+const { list, showNoData } = useOrderList<CoviduserOrder>(coviduserOrder)
 
-onShow(async () => {
-  const res = await coviduserOrder()
-  orderList.value = res
-  showNoData.value = !orderList.value.length
-})
+// const orderList = ref<CoviduserOrder[]>([])
+// const showNoData = ref<boolean>(false)
+// onShow(async () => {
+//   const res = await coviduserOrder()
+//   orderList.value = res
+//   showNoData.value = !orderList.value.length
+// })
 
 // 取消预约
-const handleCancel = async (index: number, id: string) => {
-  await covidCancel({ _id: id })
-  // 更改状态
-  orderList.value[index].cancel = false
+// const handleCancel = async (index: number, id: string) => {
+//   await covidCancel({ _id: id })
+//   // 更改状态
+//   orderList.value[index].cancel = false
+// }
+const handleCancel = (index: number, id: string) => {
+  useCancel(list.value, covidCancel, { index, id })
 }
 </script>
 <style lang="less">

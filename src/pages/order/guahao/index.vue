@@ -1,12 +1,12 @@
 <!--
  * @Date: 2023-01-17 16:52:14
  * @LastEditors: zhangshuangli
- * @LastEditTime: 2023-01-17 18:43:21
+ * @LastEditTime: 2023-02-01 23:56:17
  * @Description: 这是挂号记订单录列表文件
 -->
 <template>
   <view class="order">
-    <view class="order_item_group box_style" v-for="(item, index) in orderList" :key="index">
+    <view class="order_item_group box_style" v-for="(item, index) in list" :key="index">
       <view class="doctor_info">
         <image class="avatar" :src="item.avatar" mode="aspectFill"></image>
         <view class="doctor_detail flex_sub">
@@ -54,25 +54,32 @@
   </view>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-import { onShow } from '@dcloudio/uni-app'
+// import { ref } from 'vue'
+// import { onShow } from '@dcloudio/uni-app'
 import { userRegistrat, registCancel } from '@/api/registered'
 import { UserRegistrat } from '@/types/registered'
+import { useOrderList, useCancel } from '@/hook/useOrder'
 
-const orderList = ref<UserRegistrat[]>([])
-const showNoData = ref<boolean>(false)
+// 使用组合式函数
+const { list, showNoData } = useOrderList<UserRegistrat>(userRegistrat)
 
-onShow(async () => {
-  const res = await userRegistrat()
-  orderList.value = res
-  showNoData.value === !orderList.value.length
-})
+// const orderList = ref<UserRegistrat[]>([])
+// const showNoData = ref<boolean>(false)
+
+// onShow(async () => {
+//   const res = await userRegistrat()
+//   orderList.value = res
+//   showNoData.value === !orderList.value.length
+// })
 
 // 取消预约
+// const handleCancel = async (index: number, id: string) => {
+//   await registCancel({ _id: id })
+//   // 更改状态
+//   orderList.value[index].cancel = false
+// }
 const handleCancel = async (index: number, id: string) => {
-  await registCancel({ _id: id })
-  // 更改状态
-  orderList.value[index].cancel = false
+  useCancel(list.value, registCancel, { index, id })
 }
 </script>
 <style lang="less" scoped>
